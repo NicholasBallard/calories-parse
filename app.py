@@ -9,10 +9,10 @@ DATE_FORMAT = r'%Y%m%d'
 DATE_FORMAT_OUT = r'%Y/%m/%d'
 DAY_PATTERN = r'^\d{8}$'
 MEAL_DELIMITER = r'^\.$'
-ITEM_DELIMITER = r'\n'
+ITEM_DELIMITER = r'\n+'
 FLAGS = re.MULTILINE | re.DOTALL
 SPREADSHEET_COLUMNS = ['food', 'date', 'meal']
-SUBSTITUTIONS = {
+SUBSTITUTIONS = {  # \b is a word boundary
     r'\bbs\b': 'brown sugar',
     r'\bmed\b': 'medium',
     r'\bpop\b': 'popcorn',
@@ -21,8 +21,6 @@ SUBSTITUTIONS = {
     r'\bgf\b': 'gluten free',
     'g banana': 'g banana peeled',
 }
-
-format_functions = ['trim', 'lowercase', 'empty']
 
 
 def format(f: Callable) -> Callable:
